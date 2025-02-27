@@ -9,13 +9,14 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "eu-north-1"
+  region = var.region
 }
 
 resource "aws_instance" "myserver" {
-ami="ami-016038ae9cc8d9f51"
-instance_type = "t3.micro"
+ami=var.ami
+instance_type = var.instance_type
 tags = {
-  Name="SampleServer"
+  Name=var.tags
 }
 }
+
