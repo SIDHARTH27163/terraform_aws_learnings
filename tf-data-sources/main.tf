@@ -14,9 +14,9 @@ data "aws_ami" "name" {
 }
 
 output "aws-ami" {
-  value = data.aws_ami.name.id  # Access the AMI ID to output it
+  value = data.aws_ami.name.id  
 }
-
+# saem for different things like vpc , security groups etc
 resource "aws_instance" "myserver" {
   ami           = data.aws_ami.name.id  # Use the AMI from the data source
   instance_type = "t3.micro"
